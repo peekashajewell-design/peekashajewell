@@ -17,14 +17,18 @@ export default function AdminDashboard() {
   const [products, setProducts] = useState<Product[]>([]);
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     const token = sessionStorage.getItem('admin_token');
-    if (!token) {
+    // Validate the token matches the correct password
+    if (!token || token !== 'shreyariji1234123') {
+      sessionStorage.removeItem('admin_token');
       router.push('/admin');
       return;
     }
+    setIsAuthenticated(true);
     fetchData();
   }, []);
 
@@ -68,6 +72,15 @@ export default function AdminDashboard() {
     fetchData();
     toast.success('Product saved successfully!');
   };
+
+  // Don't render dashboard until authenticated
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-gray-500">Checking authentication...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
