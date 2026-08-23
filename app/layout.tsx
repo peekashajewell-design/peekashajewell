@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Toaster } from "react-hot-toast";
 import DataSync from "@/components/admin/DataSync";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import LayoutWrapper from "@/components/LayoutWrapper";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -20,7 +19,6 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <DataSync />
-        <Navbar />
         <Toaster
           position="top-right"
           toastOptions={{
@@ -45,8 +43,7 @@ export default function RootLayout({
             },
           }}
         />
-        {children}
-        <Footer />
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );
