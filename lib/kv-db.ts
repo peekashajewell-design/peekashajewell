@@ -30,6 +30,7 @@ const sampleProducts: Product[] = [
     images: ['https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=2070'],
     stock: 5,
     featured: true,
+    createdAt: new Date().toISOString(),
   },
   {
     id: '2',
@@ -40,6 +41,7 @@ const sampleProducts: Product[] = [
     images: ['https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=2187'],
     stock: 8,
     featured: true,
+    createdAt: new Date().toISOString(),
   },
   {
     id: '3',
@@ -50,6 +52,7 @@ const sampleProducts: Product[] = [
     images: ['https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=2187'],
     stock: 12,
     featured: false,
+    createdAt: new Date().toISOString(),
   },
   {
     id: '4',
@@ -60,6 +63,7 @@ const sampleProducts: Product[] = [
     images: ['https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=2070'],
     stock: 15,
     featured: true,
+    createdAt: new Date().toISOString(),
   },
 ];
 
@@ -120,7 +124,7 @@ export const kvDB = {
       return limit ? featured.slice(0, limit) : featured;
     },
 
-    create: async (productData: Omit<Product, 'id'>): Promise<Product> => {
+    create: async (productData: Omit<Product, 'id' | 'createdAt'>): Promise<Product> => {
       if (!isKVAvailable()) {
         throw new Error('KV not available in local development');
       }
@@ -131,6 +135,7 @@ export const kvDB = {
         const newProduct: Product = {
           ...productData,
           id: String(counter),
+          createdAt: new Date().toISOString(),
         };
 
         products.push(newProduct);
