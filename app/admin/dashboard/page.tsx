@@ -72,25 +72,25 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white shadow-sm relative z-10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-display font-bold text-primary-600">
               Admin Dashboard
             </h1>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center gap-4">
               <a
                 href="/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-gray-600 hover:text-primary-600 transition-colors cursor-pointer"
+                className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-gray-100 hover:bg-primary-100 hover:text-primary-700 rounded-lg transition-all cursor-pointer font-medium"
               >
                 <FiHome className="w-5 h-5" />
                 <span>View Site</span>
               </a>
               <button
                 onClick={handleLogout}
-                className="flex items-center space-x-2 text-gray-600 hover:text-red-600 transition-colors cursor-pointer"
+                className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-gray-100 hover:bg-red-100 hover:text-red-700 rounded-lg transition-all cursor-pointer font-medium"
               >
                 <FiLogOut className="w-5 h-5" />
                 <span>Logout</span>
