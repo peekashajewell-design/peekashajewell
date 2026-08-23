@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/blob": "^1.1.1",
     "@vercel/kv": "^3.0.0",
     "axios": "^1.7.2",
     "framer-motion": "^11.3.19",

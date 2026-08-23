@@ -1,12 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import { join } from 'path';
-import { existsSync } from 'fs';
+import { put } from '@vercel/blob';
 
 export async function POST(request: NextRequest) {
   try {
     const authHeader = request.headers.get('authorization');
-    if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_PASSWORD}`) {
+    const adminPassword = process.env.APP_ADMIN_PASSWORD || process.env.ADMIN_PASSWORD;
+    if (!authHeader || authHeader !== `Bearer ${adminPassword}`) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
@@ -23,24 +22,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+    // Upload to Vercel Blob
+    const blob = await put(file.name, file, {
+      access: 'public',
+      addRandomSuffix: true,
+    });
 
-    // Create uploads directory if it doesn't exist
-    const uploadsDir = join(process.cwd(), 'public', 'uploads');
-    if (!existsSync(uploadsDir)) {
-      await mkdir(uploadsDir, { recursive: true });
-    }
-
-    // Generate unique filename
-    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1E9)}`;
-    const filename = `${uniqueSuffix}-${file.name}`;
-    const filepath = join(uploadsDir, filename);
-
-    await writeFile(filepath, buffer);
-
-    const url = `/uploads/${filename}`;
-    return NextResponse.json({ url });
+    return NextResponse.json({ url: blob.url });
   } catch (error) {
     console.error('Upload error:', error);
     return NextResponse.json(
