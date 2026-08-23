@@ -79,16 +79,18 @@ export default function AdminDashboard() {
               Admin Dashboard
             </h1>
             <div className="flex items-center space-x-4">
-              <Link
+              <a
                 href="/"
-                className="flex items-center space-x-2 text-gray-600 hover:text-primary-600 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-gray-600 hover:text-primary-600 transition-colors cursor-pointer"
               >
                 <FiHome className="w-5 h-5" />
                 <span>View Site</span>
-              </Link>
+              </a>
               <button
                 onClick={handleLogout}
-                className="flex items-center space-x-2 text-gray-600 hover:text-red-600 transition-colors"
+                className="flex items-center space-x-2 text-gray-600 hover:text-red-600 transition-colors cursor-pointer"
               >
                 <FiLogOut className="w-5 h-5" />
                 <span>Logout</span>
