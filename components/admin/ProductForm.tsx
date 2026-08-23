@@ -273,41 +273,48 @@ export default function ProductForm({ product, onSave, onCancel }: ProductFormPr
 
         <div className="space-y-4">
           {/* Image URL Input */}
-          <div className="flex gap-2">
-            <input
-              type="url"
-              value={imageUrlInput}
-              onChange={(e) => setImageUrlInput(e.target.value)}
-              placeholder="Paste image URL (e.g., from Imgur, Unsplash)"
-              className="input-field flex-1"
-            />
-            <button
-              type="button"
-              onClick={handleAddImageUrl}
-              className="btn-secondary whitespace-nowrap"
-            >
-              Add URL
-            </button>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Add Image URL
+            </label>
+            <div className="flex gap-2">
+              <input
+                type="url"
+                value={imageUrlInput}
+                onChange={(e) => setImageUrlInput(e.target.value)}
+                placeholder="Paste image URL (e.g., from Imgur)"
+                className="input-field flex-1"
+              />
+              <button
+                type="button"
+                onClick={handleAddImageUrl}
+                className="btn-secondary whitespace-nowrap"
+              >
+                Add URL
+              </button>
+            </div>
           </div>
 
           {/* File Upload */}
-          <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-primary-500 transition-colors">
-            <FiUpload className="w-8 h-8 text-gray-400 mb-2" />
-            <span className="text-sm text-gray-500">
-              {uploading ? 'Uploading...' : 'Or click to upload images'}
-            </span>
-            <span className="text-xs text-gray-400 mt-1">
-              (File upload requires Blob storage configuration)
-            </span>
-            <input
-              type="file"
-              onChange={handleImageUpload}
-              className="hidden"
-              accept="image/*"
-              multiple
-              disabled={uploading}
-            />
-          </label>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Or Upload Images
+            </label>
+            <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-primary-500 transition-colors">
+              <FiUpload className="w-8 h-8 text-gray-400 mb-2" />
+              <span className="text-sm text-gray-500">
+                {uploading ? 'Uploading...' : 'Click to upload images from your computer'}
+              </span>
+              <input
+                type="file"
+                onChange={handleImageUpload}
+                className="hidden"
+                accept="image/*"
+                multiple
+                disabled={uploading}
+              />
+            </label>
+          </div>
         </div>
       </div>
 

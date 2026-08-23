@@ -34,8 +34,8 @@ export async function POST(request: NextRequest) {
     console.log('Uploading file:', file.name, 'Size:', file.size);
 
     // Upload to Vercel Blob
+    // Note: Store access level is configured in Vercel dashboard
     const blob = await put(file.name, file, {
-      access: 'public',
       addRandomSuffix: true,
       token: process.env.BLOB_READ_WRITE_TOKEN,
     });
