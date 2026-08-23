@@ -73,19 +73,38 @@ export default function ProductForm({ product, onSave, onCancel }: ProductFormPr
         if (response.ok) {
           const data = await response.json();
           uploadedUrls.push(data.url);
+        } else {
+          const errorData = await response.json();
+          console.error('Upload error:', errorData);
+          toast.error(errorData.error || 'Failed to upload image');
         }
       }
 
-      setFormData((prev) => ({
-        ...prev,
-        images: [...prev.images, ...uploadedUrls],
-      }));
-
-      toast.success('Images uploaded successfully!');
+      if (uploadedUrls.length > 0) {
+        setFormData((prev) => ({
+          ...prev,
+          images: [...prev.images, ...uploadedUrls],
+        }));
+        toast.success('Images uploaded successfully!');
+      }
     } catch (error) {
+      console.error('Upload error:', error);
       toast.error('Failed to upload images');
     } finally {
       setUploading(false);
+    }
+  };
+
+  const [imageUrlInput, setImageUrlInput] = useState('');
+
+  const handleAddImageUrl = () => {
+    if (imageUrlInput.trim()) {
+      setFormData((prev) => ({
+        ...prev,
+        images: [...prev.images, imageUrlInput.trim()],
+      }));
+      setImageUrlInput('');
+      toast.success('Image URL added!');
     }
   };
 
@@ -252,20 +271,44 @@ export default function ProductForm({ product, onSave, onCancel }: ProductFormPr
           </div>
         )}
 
-        <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-primary-500 transition-colors">
-          <FiUpload className="w-8 h-8 text-gray-400 mb-2" />
-          <span className="text-sm text-gray-500">
-            {uploading ? 'Uploading...' : 'Click to upload images'}
-          </span>
-          <input
-            type="file"
-            onChange={handleImageUpload}
-            className="hidden"
-            accept="image/*"
-            multiple
-            disabled={uploading}
-          />
-        </label>
+        <div className="space-y-4">
+          {/* Image URL Input */}
+          <div className="flex gap-2">
+            <input
+              type="url"
+              value={imageUrlInput}
+              onChange={(e) => setImageUrlInput(e.target.value)}
+              placeholder="Paste image URL (e.g., from Imgur, Unsplash)"
+              className="input-field flex-1"
+            />
+            <button
+              type="button"
+              onClick={handleAddImageUrl}
+              className="btn-secondary whitespace-nowrap"
+            >
+              Add URL
+            </button>
+          </div>
+
+          {/* File Upload */}
+          <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-primary-500 transition-colors">
+            <FiUpload className="w-8 h-8 text-gray-400 mb-2" />
+            <span className="text-sm text-gray-500">
+              {uploading ? 'Uploading...' : 'Or click to upload images'}
+            </span>
+            <span className="text-xs text-gray-400 mt-1">
+              (File upload requires Blob storage configuration)
+            </span>
+            <input
+              type="file"
+              onChange={handleImageUpload}
+              className="hidden"
+              accept="image/*"
+              multiple
+              disabled={uploading}
+            />
+          </label>
+        </div>
       </div>
 
       <div className="flex space-x-4">
