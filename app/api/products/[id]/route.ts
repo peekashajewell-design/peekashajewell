@@ -30,7 +30,8 @@ export async function PUT(
 ) {
   try {
     const authHeader = request.headers.get('authorization');
-    if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_PASSWORD}`) {
+    const adminPassword = process.env.APP_ADMIN_PASSWORD || process.env.ADMIN_PASSWORD;
+    if (!authHeader || authHeader !== `Bearer ${adminPassword}`) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
@@ -62,7 +63,8 @@ export async function DELETE(
 ) {
   try {
     const authHeader = request.headers.get('authorization');
-    if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_PASSWORD}`) {
+    const adminPassword = process.env.APP_ADMIN_PASSWORD || process.env.ADMIN_PASSWORD;
+    if (!authHeader || authHeader !== `Bearer ${adminPassword}`) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
