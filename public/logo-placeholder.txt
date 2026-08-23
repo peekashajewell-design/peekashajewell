@@ -1,0 +1,2 @@
+Please replace /public/logo.png with the actual logo image file.
+The uploaded logo should be saved as: /public/logo.png

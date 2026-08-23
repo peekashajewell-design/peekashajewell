@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "env": {
+    "ADMIN_PASSWORD": "@admin_password",
+    "WHATSAPP_NUMBER": "918115331054"
+  }
+}

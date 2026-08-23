@@ -1,0 +1,97 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#faf5f0',
+          100: '#f5ebe1',
+          200: '#e9d4c3',
+          300: '#ddbda5',
+          400: '#d1a687',
+          500: '#c58f69',
+          600: '#b37856',
+          700: '#8f5f43',
+          800: '#6b4732',
+          900: '#482f21',
+          950: '#2a1b13',
+        },
+        luxury: {
+          50: '#f8f7f4',
+          100: '#efede6',
+          200: '#e0dbd0',
+          300: '#cbc3b4',
+          400: '#b5a895',
+          500: '#9d8c77',
+          600: '#8a7866',
+          700: '#726155',
+          800: '#5e5148',
+          900: '#4d433d',
+          950: '#2a2520',
+        },
+        gold: {
+          50: '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#f59e0b',
+          600: '#d97706',
+          700: '#b45309',
+          800: '#92400e',
+          900: '#78350f',
+          950: '#451a03',
+        },
+        rose: {
+          50: '#fff1f2',
+          100: '#ffe4e6',
+          200: '#fecdd3',
+          300: '#fda4af',
+          400: '#fb7185',
+          500: '#f43f5e',
+          600: '#e11d48',
+          700: '#be123c',
+          800: '#9f1239',
+          900: '#881337',
+          950: '#4c0519',
+        },
+        slate: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
+          950: '#020617',
+        }
+      },
+      fontFamily: {
+        'display': ['Playfair Display', 'serif'],
+        'body': ['Inter', 'sans-serif'],
+        'elegant': ['Cormorant Garamond', 'serif'],
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-luxury': 'linear-gradient(135deg, #f5ebe1 0%, #e9d4c3 100%)',
+        'gradient-gold': 'linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%)',
+      },
+      boxShadow: {
+        'luxury': '0 10px 40px rgba(0, 0, 0, 0.1)',
+        'gold': '0 4px 20px rgba(245, 158, 11, 0.3)',
+        'elegant': '0 20px 60px rgba(0, 0, 0, 0.15)',
+      },
+    },
+  },
+  plugins: [],
+};
+export default config;
