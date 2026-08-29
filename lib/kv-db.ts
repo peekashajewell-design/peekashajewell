@@ -12,11 +12,19 @@ const ORDER_ID_COUNTER = 'peekasha:order_id_counter';
 
 // Check if we're running on Vercel with KV configured
 const isKVAvailable = () => {
-  return (
+  const hasKV = (
     (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) ||
     (process.env.UPSTASH_REDIS_REST_KV_REST_API_URL && process.env.UPSTASH_REDIS_REST_KV_REST_API_TOKEN) ||
     (process.env.UPSTASH_REDIS_REST_KV_URL && process.env.UPSTASH_REDIS_REST_KV_REST_API_TOKEN)
   );
+  console.log('[KV] isKVAvailable check:', hasKV);
+  console.log('[KV] Env vars present:', {
+    KV_REST_API_URL: !!process.env.KV_REST_API_URL,
+    KV_REST_API_TOKEN: !!process.env.KV_REST_API_TOKEN,
+    UPSTASH_REDIS_REST_KV_REST_API_URL: !!process.env.UPSTASH_REDIS_REST_KV_REST_API_URL,
+    UPSTASH_REDIS_REST_KV_REST_API_TOKEN: !!process.env.UPSTASH_REDIS_REST_KV_REST_API_TOKEN,
+  });
+  return hasKV;
 };
 
 // Sample products for initialization
