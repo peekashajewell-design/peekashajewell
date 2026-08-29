@@ -19,6 +19,8 @@ export async function GET(request: NextRequest) {
       UPSTASH_REDIS_REST_KV_REST_API_URL: !!process.env.UPSTASH_REDIS_REST_KV_REST_API_URL,
       UPSTASH_REDIS_REST_KV_REST_API_TOKEN: !!process.env.UPSTASH_REDIS_REST_KV_REST_API_TOKEN,
       UPSTASH_REDIS_REST_KV_URL: !!process.env.UPSTASH_REDIS_REST_KV_URL,
+      BLOB_READ_WRITE_TOKEN: !!process.env.BLOB_READ_WRITE_TOKEN,
+      BLOB_STORE_ID: !!process.env.BLOB_STORE_ID,
     };
 
     // Try to read from KV
