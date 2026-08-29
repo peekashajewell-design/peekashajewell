@@ -36,13 +36,22 @@ export default function AdminDashboard() {
     try {
       const token = sessionStorage.getItem('admin_token');
 
-      const productsRes = await fetch('/api/products');
+      // Add cache busting to force fresh data from database
+      const timestamp = new Date().getTime();
+      const productsRes = await fetch(`/api/products?_=${timestamp}`, {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache',
+        },
+      });
       const productsData = await productsRes.json();
       setProducts(productsData);
 
-      const ordersRes = await fetch('/api/orders', {
+      const ordersRes = await fetch(`/api/orders?_=${timestamp}`, {
+        cache: 'no-store',
         headers: {
           Authorization: `Bearer ${token}`,
+          'Cache-Control': 'no-cache',
         },
       });
       if (ordersRes.ok) {
