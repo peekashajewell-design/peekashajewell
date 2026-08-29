@@ -37,24 +37,36 @@ export default function AdminDashboard() {
     try {
       const token = sessionStorage.getItem('admin_token');
 
-      // Add cache busting to force fresh data from database
-      const timestamp = Date.now();
-      console.log('Fetching products with timestamp:', timestamp);
+      // EXTREME cache busting - version + timestamp + random
+      const cacheBuster = `v=${Date.now()}.${Math.random()}`;
+      console.log('Fetching with cache buster:', cacheBuster);
 
-      const productsRes = await fetch(`/api/products?t=${timestamp}`, {
+      const productsRes = await fetch(`/api/products?${cacheBuster}`, {
+        method: 'GET',
         cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0',
+        },
       });
 
       console.log('Products response status:', productsRes.status);
       const productsData = await productsRes.json();
       console.log('Products data received:', productsData.length, 'items');
+      console.log('First product name:', productsData[0]?.name);
+      console.log('All product names:', productsData.map((p: Product) => p.name).join(', '));
       setProducts(productsData);
 
       console.log('Fetching orders...');
-      const ordersRes = await fetch(`/api/orders?t=${timestamp}`, {
+      const ordersRes = await fetch(`/api/orders?${cacheBuster}`, {
+        method: 'GET',
         cache: 'no-store',
         headers: {
           Authorization: `Bearer ${token}`,
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0',
         },
       });
 
