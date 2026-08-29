@@ -119,11 +119,17 @@ export default function ProductForm({ product, onSave, onCancel }: ProductFormPr
     e.preventDefault();
     setSaving(true);
 
+    console.log('=== SAVE STARTING ===');
+
     const token = sessionStorage.getItem('admin_token');
+    console.log('Token from storage:', token);
+    console.log('Token exists:', !!token);
 
     try {
       const url = product ? `/api/products/${product.id}` : '/api/products';
       const method = product ? 'PUT' : 'POST';
+
+      console.log('About to fetch:', method, url);
 
       const response = await fetch(url, {
         method,
@@ -142,19 +148,24 @@ export default function ProductForm({ product, onSave, onCancel }: ProductFormPr
         }),
       });
 
+      console.log('Response received:', response.status);
+
       if (response.ok) {
+        console.log('Save SUCCESS - calling onSave');
         onSave();
       } else {
         const errorData = await response.json();
-        console.error('Save failed:', response.status, errorData);
+        console.error('Save FAILED:', response.status, errorData);
         toast.error(`Failed to save product: ${errorData.error || 'Unknown error'}`);
       }
     } catch (error) {
-      console.error('Save error:', error);
-      toast.error('An error occurred');
+      console.error('Save ERROR (exception):', error);
+      toast.error(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
       setSaving(false);
     }
+
+    console.log('=== SAVE ENDING ===');
   };
 
   return (

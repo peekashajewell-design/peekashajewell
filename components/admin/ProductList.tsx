@@ -15,9 +15,16 @@ export default function ProductList({ products, onEdit, onRefresh }: ProductList
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this product?')) return;
 
+    console.log('=== DELETE STARTING ===');
+    console.log('Product ID:', id);
+
     const token = sessionStorage.getItem('admin_token');
+    console.log('Token from storage:', token);
+    console.log('Token exists:', !!token);
 
     try {
+      console.log('About to fetch:', `/api/products/${id}`);
+
       const response = await fetch(`/api/products/${id}`, {
         method: 'DELETE',
         headers: {
@@ -25,18 +32,23 @@ export default function ProductList({ products, onEdit, onRefresh }: ProductList
         },
       });
 
+      console.log('Response received:', response.status);
+
       if (response.ok) {
+        console.log('Delete SUCCESS - calling onRefresh');
         toast.success('Product deleted successfully!');
         onRefresh();
       } else {
         const errorData = await response.json();
-        console.error('Delete failed:', response.status, errorData);
+        console.error('Delete FAILED:', response.status, errorData);
         toast.error(`Failed to delete: ${errorData.error || 'Unknown error'}`);
       }
     } catch (error) {
-      console.error('Delete error:', error);
-      toast.error('An error occurred');
+      console.error('Delete ERROR (exception):', error);
+      toast.error(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
+
+    console.log('=== DELETE ENDING ===');
   };
 
   if (products.length === 0) {
