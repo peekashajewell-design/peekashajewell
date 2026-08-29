@@ -68,17 +68,21 @@ const sampleProducts: Product[] = [
 ];
 
 export const kvDB = {
-  // Initialize database with sample products if empty
+  // Initialize database with sample products ONLY if database has never been set up
   initialize: async () => {
     if (!isKVAvailable()) return;
 
     try {
-      const existingProducts = await kv.get<Product[]>(PRODUCTS_KEY);
-      if (!existingProducts || existingProducts.length === 0) {
+      // Check if database has been initialized (look for counter, not products array)
+      const counter = await kv.get<number>(PRODUCT_ID_COUNTER);
+
+      // Only initialize if counter doesn't exist (first time setup)
+      if (counter === null || counter === undefined) {
         await kv.set(PRODUCTS_KEY, sampleProducts);
         await kv.set(PRODUCT_ID_COUNTER, 5);
         await kv.set(ORDER_ID_COUNTER, 1);
         await kv.set(ORDERS_KEY, []);
+        console.log('Database initialized with sample data');
       }
     } catch (error) {
       console.error('KV initialization error:', error);
