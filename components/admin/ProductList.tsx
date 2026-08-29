@@ -29,9 +29,12 @@ export default function ProductList({ products, onEdit, onRefresh }: ProductList
         toast.success('Product deleted successfully!');
         onRefresh();
       } else {
-        toast.error('Failed to delete product');
+        const errorData = await response.json();
+        console.error('Delete failed:', response.status, errorData);
+        toast.error(`Failed to delete: ${errorData.error || 'Unknown error'}`);
       }
     } catch (error) {
+      console.error('Delete error:', error);
       toast.error('An error occurred');
     }
   };

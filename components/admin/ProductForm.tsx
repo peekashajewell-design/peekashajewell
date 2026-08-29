@@ -145,9 +145,12 @@ export default function ProductForm({ product, onSave, onCancel }: ProductFormPr
       if (response.ok) {
         onSave();
       } else {
-        toast.error('Failed to save product');
+        const errorData = await response.json();
+        console.error('Save failed:', response.status, errorData);
+        toast.error(`Failed to save product: ${errorData.error || 'Unknown error'}`);
       }
     } catch (error) {
+      console.error('Save error:', error);
       toast.error('An error occurred');
     } finally {
       setSaving(false);
