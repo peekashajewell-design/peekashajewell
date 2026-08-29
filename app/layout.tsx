@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Toaster } from "react-hot-toast";
-import DataSync from "@/components/admin/DataSync";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import "./globals.css";
 
@@ -18,7 +17,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <DataSync />
         <Toaster
           position="top-right"
           toastOptions={{
