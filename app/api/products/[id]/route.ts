@@ -62,16 +62,24 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
+    console.log('DELETE request for product ID:', params.id);
+
     const authHeader = request.headers.get('authorization');
     const adminPassword = process.env.APP_ADMIN_PASSWORD || process.env.ADMIN_PASSWORD;
+
+    console.log('Auth check - Has header:', !!authHeader, 'Has password:', !!adminPassword);
+
     if (!authHeader || authHeader !== `Bearer ${adminPassword}`) {
+      console.log('Auth failed');
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       );
     }
 
+    console.log('Calling delete for product:', params.id);
     const success = await kvDB.products.delete(params.id);
+    console.log('Delete result:', success);
 
     if (!success) {
       return NextResponse.json(
@@ -82,6 +90,7 @@ export async function DELETE(
 
     return NextResponse.json({ success: true });
   } catch (error) {
+    console.error('Delete error:', error);
     return NextResponse.json(
       { error: 'Failed to delete product' },
       { status: 500 }
