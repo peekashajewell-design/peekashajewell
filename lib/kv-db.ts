@@ -93,13 +93,16 @@ export const kvDB = {
   products: {
     getAll: async (): Promise<Product[]> => {
       if (!isKVAvailable()) {
+        console.log('[KV] NOT AVAILABLE - returning sample products');
         return sampleProducts;
       }
       try {
+        console.log('[KV] Fetching all products from key:', PRODUCTS_KEY);
         const products = await kv.get<Product[]>(PRODUCTS_KEY);
+        console.log('[KV] Products fetched:', products ? products.length : 0, 'items');
         return products || [];
       } catch (error) {
-        console.error('KV get products error:', error);
+        console.error('[KV] Get products error:', error);
         return sampleProducts;
       }
     },
@@ -133,22 +136,31 @@ export const kvDB = {
         throw new Error('KV not available in local development');
       }
       try {
+        console.log('[KV] CREATE - Fetching current products');
         const products = await kv.get<Product[]>(PRODUCTS_KEY) || [];
+        console.log('[KV] CREATE - Current products count:', products.length);
+
         const counter = await kv.get<number>(PRODUCT_ID_COUNTER) || 1;
+        console.log('[KV] CREATE - Next ID counter:', counter);
 
         const newProduct: Product = {
           ...productData,
           id: String(counter),
           createdAt: new Date().toISOString(),
         };
+        console.log('[KV] CREATE - New product:', newProduct.id, newProduct.name);
 
         products.push(newProduct);
+        console.log('[KV] CREATE - Setting products array with', products.length, 'items');
         await kv.set(PRODUCTS_KEY, products);
+
+        console.log('[KV] CREATE - Incrementing counter to', counter + 1);
         await kv.set(PRODUCT_ID_COUNTER, counter + 1);
 
+        console.log('[KV] CREATE - Successfully created product:', newProduct.id);
         return newProduct;
       } catch (error) {
-        console.error('KV create product error:', error);
+        console.error('[KV] CREATE error:', error);
         throw error;
       }
     },
@@ -178,15 +190,25 @@ export const kvDB = {
         throw new Error('KV not available in local development');
       }
       try {
+        console.log('[KV] DELETE - Fetching products to delete ID:', id);
         const products = await kv.get<Product[]>(PRODUCTS_KEY) || [];
+        console.log('[KV] DELETE - Current products count:', products.length);
+        console.log('[KV] DELETE - Current product IDs:', products.map(p => p.id));
+
         const filtered = products.filter(p => p.id !== id);
+        console.log('[KV] DELETE - After filter count:', filtered.length);
 
-        if (filtered.length === products.length) return false;
+        if (filtered.length === products.length) {
+          console.log('[KV] DELETE - Product not found, returning false');
+          return false;
+        }
 
+        console.log('[KV] DELETE - Setting filtered products back to KV');
         await kv.set(PRODUCTS_KEY, filtered);
+        console.log('[KV] DELETE - Successfully deleted product:', id);
         return true;
       } catch (error) {
-        console.error('KV delete product error:', error);
+        console.error('[KV] DELETE error:', error);
         throw error;
       }
     },
