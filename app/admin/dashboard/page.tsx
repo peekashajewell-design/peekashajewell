@@ -33,36 +33,44 @@ export default function AdminDashboard() {
   }, []);
 
   const fetchData = async () => {
+    console.log('=== FETCH DATA STARTING ===');
     try {
       const token = sessionStorage.getItem('admin_token');
 
       // Add cache busting to force fresh data from database
-      const timestamp = new Date().getTime();
-      const productsRes = await fetch(`/api/products?_=${timestamp}`, {
+      const timestamp = Date.now();
+      console.log('Fetching products with timestamp:', timestamp);
+
+      const productsRes = await fetch(`/api/products?t=${timestamp}`, {
         cache: 'no-store',
-        headers: {
-          'Cache-Control': 'no-cache',
-        },
       });
+
+      console.log('Products response status:', productsRes.status);
       const productsData = await productsRes.json();
+      console.log('Products data received:', productsData.length, 'items');
       setProducts(productsData);
 
-      const ordersRes = await fetch(`/api/orders?_=${timestamp}`, {
+      console.log('Fetching orders...');
+      const ordersRes = await fetch(`/api/orders?t=${timestamp}`, {
         cache: 'no-store',
         headers: {
           Authorization: `Bearer ${token}`,
-          'Cache-Control': 'no-cache',
         },
       });
+
+      console.log('Orders response status:', ordersRes.status);
       if (ordersRes.ok) {
         const ordersData = await ordersRes.json();
+        console.log('Orders data received:', ordersData.length, 'items');
         setOrders(ordersData);
       }
     } catch (error) {
+      console.error('fetchData ERROR:', error);
       toast.error('Failed to load data');
     } finally {
       setLoading(false);
     }
+    console.log('=== FETCH DATA ENDING ===');
   };
 
   const handleLogout = () => {
