@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { FiPackage, FiShoppingBag, FiPlus, FiLogOut, FiHome } from 'react-icons/fi';
+import { FiPackage, FiShoppingBag, FiPlus, FiLogOut, FiHome, FiDownload } from 'react-icons/fi';
 import { Product, Order } from '@/types';
 import ProductForm from '@/components/admin/ProductForm';
 import ProductList from '@/components/admin/ProductList';
@@ -73,6 +73,34 @@ export default function AdminDashboard() {
     toast.success('Product saved successfully!');
   };
 
+  const handleBackup = async () => {
+    try {
+      const token = sessionStorage.getItem('admin_token');
+      const response = await fetch('/api/backup', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const backup = await response.json();
+        const dataStr = JSON.stringify(backup, null, 2);
+        const dataBlob = new Blob([dataStr], { type: 'application/json' });
+        const url = URL.createObjectURL(dataBlob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `peekasha-backup-${new Date().toISOString().split('T')[0]}.json`;
+        link.click();
+        URL.revokeObjectURL(url);
+        toast.success('Backup downloaded successfully!');
+      } else {
+        toast.error('Failed to create backup');
+      }
+    } catch (error) {
+      toast.error('Backup failed');
+    }
+  };
+
   // Don't render dashboard until authenticated
   if (!isAuthenticated) {
     return (
@@ -92,6 +120,14 @@ export default function AdminDashboard() {
               Admin Dashboard
             </h1>
             <div className="flex items-center gap-4">
+              <button
+                onClick={handleBackup}
+                className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-green-50 hover:bg-green-100 hover:text-green-700 rounded-lg transition-all cursor-pointer font-medium"
+                title="Download backup of all products and orders"
+              >
+                <FiDownload className="w-5 h-5" />
+                <span>Backup Data</span>
+              </button>
               <a
                 href="/"
                 target="_blank"
