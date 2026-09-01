@@ -251,7 +251,7 @@ export default function ProductForm({ product, onSave, onCancel }: ProductFormPr
             type="checkbox"
             checked={formData.featured}
             onChange={(e) => setFormData({ ...formData, featured: e.target.checked })}
-            className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
+            className="w-4 h-4 text-amethyst-600 rounded focus:ring-amethyst-500"
           />
           <span className="text-sm font-medium text-gray-700">Featured Product</span>
         </label>
@@ -314,7 +314,7 @@ export default function ProductForm({ product, onSave, onCancel }: ProductFormPr
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Or Upload Images
             </label>
-            <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-primary-500 transition-colors">
+            <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-amethyst-500 transition-colors">
               <FiUpload className="w-8 h-8 text-gray-400 mb-2" />
               <span className="text-sm text-gray-500">
                 {uploading ? 'Uploading...' : 'Click to upload images from your computer'}

@@ -82,10 +82,10 @@ export default function ProductList({ products, onEdit, onRefresh }: ProductList
                 </p>
               </div>
               <div className="text-right">
-                <p className="font-bold text-primary-600">₹{product.price.toLocaleString()}</p>
+                <p className="font-bold text-amethyst-600">₹{product.price.toLocaleString()}</p>
                 <p className="text-sm text-gray-500">Stock: {product.stock}</p>
                 {product.featured && (
-                  <span className="inline-block mt-1 px-2 py-1 bg-gold-100 text-gold-700 text-xs rounded">
+                  <span className="inline-block mt-1 px-2 py-1 bg-ruby-100 text-ruby-700 text-xs rounded">
                     Featured
                   </span>
                 )}

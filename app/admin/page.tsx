@@ -28,11 +28,11 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-gray-100 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amethyst-50 to-gray-100 px-4">
       <div className="card max-w-md w-full p-8">
         <div className="flex justify-center mb-6">
-          <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
-            <FiLock className="w-8 h-8 text-primary-600" />
+          <div className="w-16 h-16 bg-amethyst-100 rounded-full flex items-center justify-center">
+            <FiLock className="w-8 h-8 text-amethyst-600" />
           </div>
         </div>
 

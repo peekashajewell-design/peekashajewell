@@ -68,7 +68,7 @@ export default function CartPage() {
                         <p className="text-sm text-gray-500 uppercase mb-2">
                           {item.category}
                         </p>
-                        <p className="text-primary-600 font-bold">
+                        <p className="text-amethyst-600 font-bold">
                           ₹{item.price.toLocaleString()}
                         </p>
                       </div>
@@ -136,7 +136,7 @@ export default function CartPage() {
                   <div className="pt-4 border-t mb-6">
                     <div className="flex justify-between items-center">
                       <span className="text-lg font-semibold">Total</span>
-                      <span className="text-2xl font-bold text-primary-600">
+                      <span className="text-2xl font-bold text-amethyst-600">
                         ₹{getTotalPrice().toLocaleString()}
                       </span>
                     </div>
@@ -151,7 +151,7 @@ export default function CartPage() {
 
                   <Link
                     href="/products"
-                    className="block text-center text-primary-600 hover:text-primary-700 font-medium"
+                    className="block text-center text-amethyst-600 hover:text-amethyst-700 font-medium"
                   >
                     Continue Shopping
                   </Link>

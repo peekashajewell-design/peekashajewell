@@ -50,19 +50,19 @@ function OrderSuccessContent() {
               <h3 className="font-semibold text-lg mb-4">What's Next?</h3>
               <div className="text-left space-y-3 text-gray-600">
                 <p className="flex items-start">
-                  <span className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 font-semibold text-sm mr-3 flex-shrink-0">
+                  <span className="w-6 h-6 bg-amethyst-100 rounded-full flex items-center justify-center text-amethyst-600 font-semibold text-sm mr-3 flex-shrink-0">
                     1
                   </span>
                   <span>We'll review your order and contact you on WhatsApp</span>
                 </p>
                 <p className="flex items-start">
-                  <span className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 font-semibold text-sm mr-3 flex-shrink-0">
+                  <span className="w-6 h-6 bg-amethyst-100 rounded-full flex items-center justify-center text-amethyst-600 font-semibold text-sm mr-3 flex-shrink-0">
                     2
                   </span>
                   <span>Confirm your order details and payment method</span>
                   </p>
                 <p className="flex items-start">
-                  <span className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 font-semibold text-sm mr-3 flex-shrink-0">
+                  <span className="w-6 h-6 bg-amethyst-100 rounded-full flex items-center justify-center text-amethyst-600 font-semibold text-sm mr-3 flex-shrink-0">
                     3
                   </span>
                   <span>We'll process and ship your jewelry with care</span>

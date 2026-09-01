@@ -58,7 +58,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           {/* Add to Cart Button */}
           <button
             onClick={handleAddToCart}
-            className="absolute bottom-4 right-4 bg-white p-4 rounded-full shadow-luxury opacity-0 group-hover:opacity-100 transition-all duration-500 hover:bg-gold-500 hover:text-white transform translate-y-4 group-hover:translate-y-0 hover:scale-110 hover:shadow-gold"
+            className="absolute bottom-4 right-4 bg-white p-4 rounded-full shadow-luxury opacity-0 group-hover:opacity-100 transition-all duration-500 hover:bg-gradient-to-r hover:from-amethyst-500 hover:to-ruby-500 hover:text-white transform translate-y-4 group-hover:translate-y-0 hover:scale-110 hover:shadow-jewel"
           >
             <FiShoppingCart className="w-5 h-5" />
           </button>
@@ -77,10 +77,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Product Info */}
         <div className="p-6 bg-white">
           <div className="mb-3">
-            <p className="text-xs text-gold-600 uppercase tracking-widest mb-2 font-bold">
+            <p className="text-xs text-amethyst-600 uppercase tracking-widest mb-2 font-bold">
               {product.category}
             </p>
-            <h3 className="text-xl font-display font-bold text-slate-900 group-hover:text-gold-700 transition-colors leading-tight mb-2">
+            <h3 className="text-xl font-display font-bold text-slate-900 group-hover:text-amethyst-700 transition-colors leading-tight mb-2">
               {product.name}
             </h3>
           </div>
@@ -103,7 +103,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Decorative Corner */}
-        <div className="absolute top-0 right-0 w-20 h-20 bg-gold-400/5 rounded-bl-full transform translate-x-8 -translate-y-8 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-500" />
+        <div className="absolute top-0 right-0 w-20 h-20 bg-amethyst-400/10 rounded-bl-full transform translate-x-8 -translate-y-8 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-500" />
       </div>
     </Link>
   );

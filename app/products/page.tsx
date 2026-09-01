@@ -72,7 +72,7 @@ function ProductsContent() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
                   selectedCategory === category.id
-                    ? 'bg-primary-600 text-white shadow-lg'
+                    ? 'bg-amethyst-600 text-white shadow-lg'
                     : 'bg-white text-gray-700 hover:bg-gray-100'
                 }`}
               >

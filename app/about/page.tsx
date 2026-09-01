@@ -48,7 +48,7 @@ export default function AboutPage() {
     <div className="min-h-screen pt-32 pb-20">
       {/* Hero Section */}
       <section className="bg-luxury-gradient py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amethyst-400/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-rose-400/10 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -58,7 +58,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <span className="inline-flex items-center px-4 py-2 bg-gold-100 text-gold-800 text-xs font-bold uppercase tracking-widest rounded-full mb-6">
+            <span className="inline-flex items-center px-4 py-2 bg-amethyst-100 text-amethyst-800 text-xs font-bold uppercase tracking-widest rounded-full mb-6">
               ✦ Our Story ✦
             </span>
             <h1 className="text-5xl md:text-6xl font-display font-bold text-slate-900 mb-6">
@@ -84,10 +84,10 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-gold-400 to-gold-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-amethyst-400 to-amethyst-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-4xl font-bold text-gold-600 mb-2">{stat.value}</h3>
+                <h3 className="text-4xl font-bold text-amethyst-600 mb-2">{stat.value}</h3>
                 <p className="text-slate-600 font-semibold uppercase tracking-wider text-sm">
                   {stat.label}
                 </p>
@@ -99,7 +99,7 @@ export default function AboutPage() {
 
       {/* Story Section */}
       <section className="py-20 bg-gradient-to-br from-white via-luxury-50 to-white relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold-400/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-amethyst-400/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-rose-400/5 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -112,7 +112,7 @@ export default function AboutPage() {
             >
               <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
                 Crafting Timeless
-                <span className="block text-gold-600 mt-2">Masterpieces</span>
+                <span className="block text-amethyst-600 mt-2">Masterpieces</span>
               </h2>
 
               <p className="text-lg text-slate-600 mb-6 leading-relaxed">
@@ -132,11 +132,11 @@ export default function AboutPage() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="flex items-start space-x-5 group"
                   >
-                    <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-gold-400 to-gold-600 rounded-2xl flex items-center justify-center shadow-gold group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-amethyst-400 to-amethyst-600 rounded-2xl flex items-center justify-center shadow-gold group-hover:scale-110 transition-transform duration-300">
                       <feature.icon className="w-7 h-7 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-gold-700 transition-colors">
+                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-amethyst-700 transition-colors">
                         {feature.title}
                       </h3>
                       <p className="text-slate-600 leading-relaxed">{feature.description}</p>
@@ -163,7 +163,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
                 <div className="absolute inset-4 border-2 border-white/20 rounded-3xl pointer-events-none" />
               </div>
-              <div className="absolute -top-8 -left-8 w-32 h-32 bg-gold-400/20 rounded-full blur-2xl" />
+              <div className="absolute -top-8 -left-8 w-32 h-32 bg-amethyst-400/20 rounded-full blur-2xl" />
             </motion.div>
           </div>
         </div>
@@ -194,7 +194,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="card hover:shadow-gold transition-all duration-300"
               >
-                <div className="w-12 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mb-6" />
+                <div className="w-12 h-1 bg-gradient-to-r from-amethyst-400 to-amethyst-600 mb-6" />
                 <h3 className="text-2xl font-display font-bold text-slate-900 mb-4">
                   {value.title}
                 </h3>
@@ -210,7 +210,7 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gold-500 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-0 w-96 h-96 bg-amethyst-500 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-rose-500 rounded-full blur-3xl" />
         </div>
 

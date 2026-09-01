@@ -33,7 +33,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
             <div className={`w-12 h-12 rounded-full overflow-hidden border-2 transition-all duration-300 ${
-              isScrolled ? 'border-gold-400 shadow-gold' : 'border-white/40 shadow-lg'
+              isScrolled ? 'border-amethyst-400 shadow-jewel' : 'border-white/40 shadow-lg'
             }`}>
               <img
                 src="/logo.png"
@@ -53,7 +53,7 @@ export default function Navbar() {
             <Link
               href="/"
               className={`font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:scale-105 ${
-                isScrolled ? 'text-slate-700 hover:text-gold-600' : 'text-white hover:text-gold-300'
+                isScrolled ? 'text-slate-700 hover:text-amethyst-600' : 'text-white hover:text-amethyst-300'
               }`}
             >
               Home
@@ -61,7 +61,7 @@ export default function Navbar() {
             <Link
               href="/products"
               className={`font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:scale-105 ${
-                isScrolled ? 'text-slate-700 hover:text-gold-600' : 'text-white hover:text-gold-300'
+                isScrolled ? 'text-slate-700 hover:text-amethyst-600' : 'text-white hover:text-amethyst-300'
               }`}
             >
               Collection
@@ -69,7 +69,7 @@ export default function Navbar() {
             <Link
               href="/about"
               className={`font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:scale-105 ${
-                isScrolled ? 'text-slate-700 hover:text-gold-600' : 'text-white hover:text-gold-300'
+                isScrolled ? 'text-slate-700 hover:text-amethyst-600' : 'text-white hover:text-amethyst-300'
               }`}
             >
               About
@@ -77,7 +77,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               className={`font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:scale-105 ${
-                isScrolled ? 'text-slate-700 hover:text-gold-600' : 'text-white hover:text-gold-300'
+                isScrolled ? 'text-slate-700 hover:text-amethyst-600' : 'text-white hover:text-amethyst-300'
               }`}
             >
               Contact
@@ -89,7 +89,7 @@ export default function Navbar() {
             <Link
               href="/admin"
               className={`p-3 rounded-full transition-all duration-300 hover:scale-110 ${
-                isScrolled ? 'text-slate-700 hover:bg-luxury-100' : 'text-white hover:bg-white/20'
+                isScrolled ? 'text-slate-700 hover:bg-amethyst-100' : 'text-white hover:bg-white/20'
               }`}
               title="Admin"
             >
@@ -99,7 +99,7 @@ export default function Navbar() {
             <Link
               href="/cart"
               className={`relative p-3 rounded-full transition-all duration-300 hover:scale-110 ${
-                isScrolled ? 'text-slate-700 hover:bg-luxury-100' : 'text-white hover:bg-white/20'
+                isScrolled ? 'text-slate-700 hover:bg-amethyst-100' : 'text-white hover:bg-white/20'
               }`}
               title="Shopping Cart"
             >
@@ -132,28 +132,28 @@ export default function Navbar() {
           <div className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-lg">
             <Link
               href="/"
-              className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
+              className="block px-4 py-2 text-gray-700 hover:bg-amethyst-50 hover:text-amethyst-600 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/products"
-              className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
+              className="block px-4 py-2 text-gray-700 hover:bg-amethyst-50 hover:text-amethyst-600 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Products
             </Link>
             <Link
               href="/about"
-              className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
+              className="block px-4 py-2 text-gray-700 hover:bg-amethyst-50 hover:text-amethyst-600 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
+              className="block px-4 py-2 text-gray-700 hover:bg-amethyst-50 hover:text-amethyst-600 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact

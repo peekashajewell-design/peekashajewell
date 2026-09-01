@@ -15,11 +15,12 @@ export default function Hero() {
             backgroundImage: "url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2070')",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-slate-900/60 to-slate-800/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-amethyst-950/85 via-sapphire-950/70 to-ruby-950/80" />
 
         {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gold-500/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-amethyst-500/20 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-ruby-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
+        <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-sapphire-500/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
       </div>
 
       {/* Content */}
@@ -37,19 +38,19 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="inline-block"
           >
-            <span className="inline-flex items-center px-6 py-2 bg-gold-500/20 backdrop-blur-sm border border-gold-400/30 text-gold-300 text-sm font-semibold uppercase tracking-widest rounded-full">
+            <span className="inline-flex items-center px-6 py-2 bg-white/10 backdrop-blur-sm border border-amethyst-300/40 text-amethyst-200 text-sm font-semibold uppercase tracking-widest rounded-full">
               ✦ Luxury Jewelry Collection ✦
             </span>
           </motion.div>
 
           <h1 className="text-6xl md:text-8xl font-display font-bold text-white mb-6 tracking-tight leading-tight">
             Timeless
-            <span className="block text-gold-400 mt-2">Elegance</span>
+            <span className="block mt-2 bg-gradient-to-r from-amethyst-300 via-ruby-300 to-sapphire-300 bg-clip-text text-transparent">Elegance</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-200 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
             Discover exquisite handcrafted jewelry pieces that tell your unique story.
-            <span className="block mt-2 text-gold-300">Where luxury meets artistry.</span>
+            <span className="block mt-2 text-ruby-200">Where luxury meets artistry.</span>
           </p>
 
           <motion.div
@@ -75,15 +76,15 @@ export default function Hero() {
             className="flex flex-wrap justify-center gap-8 mt-16 text-white/80"
           >
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-gold-400 rounded-full" />
+              <div className="w-2 h-2 bg-gradient-to-r from-amethyst-400 to-ruby-400 rounded-full" />
               <span className="text-sm uppercase tracking-wider">Handcrafted</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-gold-400 rounded-full" />
+              <div className="w-2 h-2 bg-gradient-to-r from-amethyst-400 to-ruby-400 rounded-full" />
               <span className="text-sm uppercase tracking-wider">Premium Quality</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-gold-400 rounded-full" />
+              <div className="w-2 h-2 bg-gradient-to-r from-amethyst-400 to-ruby-400 rounded-full" />
               <span className="text-sm uppercase tracking-wider">Authentic Designs</span>
             </div>
           </motion.div>
@@ -102,7 +103,7 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, 12, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
-                className="w-1.5 h-1.5 bg-gold-400 rounded-full mt-2"
+                className="w-1.5 h-1.5 bg-amethyst-300 rounded-full mt-2"
               />
             </div>
           </div>

@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply font-body text-slate-900 bg-gradient-to-br from-slate-50 to-luxury-50 antialiased;
+    @apply font-body text-slate-900 bg-gradient-to-br from-amethyst-50 via-white to-emerald-50 antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -16,19 +16,19 @@
 
 @layer components {
   .btn-primary {
-    @apply px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-white rounded-full hover:from-gold-600 hover:to-gold-700 transition-all duration-300 font-semibold shadow-gold hover:shadow-xl transform hover:-translate-y-0.5 uppercase tracking-wider text-sm;
+    @apply px-8 py-4 bg-gradient-to-r from-amethyst-600 via-ruby-500 to-sapphire-600 bg-[length:200%_auto] text-white rounded-full hover:bg-[position:right_center] transition-all duration-500 font-semibold shadow-jewel hover:shadow-xl transform hover:-translate-y-0.5 uppercase tracking-wider text-sm;
   }
 
   .btn-secondary {
-    @apply px-8 py-4 bg-white text-gold-700 border-2 border-gold-500 rounded-full hover:bg-gold-50 transition-all duration-300 font-semibold hover:shadow-lg transform hover:-translate-y-0.5 uppercase tracking-wider text-sm;
+    @apply px-8 py-4 bg-white text-amethyst-700 border-2 border-amethyst-400 rounded-full hover:bg-amethyst-50 hover:border-amethyst-500 transition-all duration-300 font-semibold hover:shadow-lg transform hover:-translate-y-0.5 uppercase tracking-wider text-sm;
   }
 
   .card {
-    @apply bg-white rounded-2xl shadow-luxury overflow-hidden transition-all duration-500 hover:shadow-elegant hover:-translate-y-1 border border-luxury-100;
+    @apply bg-white rounded-2xl shadow-luxury overflow-hidden transition-all duration-500 hover:shadow-elegant hover:-translate-y-1 border border-amethyst-100;
   }
 
   .input-field {
-    @apply w-full px-5 py-4 border-2 border-luxury-200 rounded-xl focus:ring-2 focus:ring-gold-400 focus:border-gold-400 transition-all duration-200 outline-none bg-white;
+    @apply w-full px-5 py-4 border-2 border-amethyst-200 rounded-xl focus:ring-2 focus:ring-amethyst-400 focus:border-amethyst-400 transition-all duration-200 outline-none bg-white;
   }
 
   .section-title {
@@ -40,38 +40,46 @@
   }
 
   .category-card {
-    @apply relative overflow-hidden rounded-2xl cursor-pointer shadow-luxury hover:shadow-elegant transition-all duration-500;
+    @apply relative overflow-hidden rounded-2xl cursor-pointer shadow-luxury hover:shadow-jewel transition-all duration-500;
   }
 
   .category-overlay {
-    @apply absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent flex items-end justify-center p-8 transition-all duration-500;
+    @apply absolute inset-0 bg-gradient-to-t from-amethyst-950/80 via-amethyst-900/40 to-transparent flex items-end justify-center p-8 transition-all duration-500;
   }
 
   .luxury-badge {
-    @apply inline-flex items-center px-4 py-2 bg-gradient-to-r from-gold-400 to-gold-500 text-white text-xs font-bold uppercase tracking-widest rounded-full shadow-gold;
+    @apply inline-flex items-center px-4 py-2 bg-gradient-to-r from-amethyst-500 to-ruby-500 text-white text-xs font-bold uppercase tracking-widest rounded-full shadow-jewel;
   }
 
   .price-tag {
-    @apply text-3xl font-bold bg-gradient-to-r from-gold-600 to-gold-700 bg-clip-text text-transparent;
+    @apply text-3xl font-bold bg-gradient-to-r from-amethyst-600 to-ruby-600 bg-clip-text text-transparent;
   }
 }
 
 @layer utilities {
   .text-gold-gradient {
-    @apply bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-amethyst-500 via-ruby-500 to-sapphire-500 bg-clip-text text-transparent;
+  }
+
+  .text-jewel-gradient {
+    @apply bg-gradient-to-r from-amethyst-500 via-ruby-500 to-sapphire-500 bg-clip-text text-transparent;
   }
 
   .bg-gold-gradient {
-    @apply bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600;
+    @apply bg-gradient-to-r from-amethyst-500 via-ruby-500 to-sapphire-500;
+  }
+
+  .bg-jewel-gradient {
+    @apply bg-gradient-to-r from-amethyst-600 via-ruby-500 to-sapphire-600;
   }
 
   .bg-luxury-gradient {
-    @apply bg-gradient-to-br from-luxury-50 via-white to-luxury-50;
+    @apply bg-gradient-to-br from-amethyst-50 via-white to-emerald-50;
   }
 
   .animate-shimmer {
     animation: shimmer 3s infinite;
-    background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.15), transparent);
     background-size: 200% 100%;
   }
 
@@ -104,10 +112,10 @@
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
   }
   to {
-    box-shadow: 0 0 30px rgba(245, 158, 11, 0.6), 0 0 40px rgba(245, 158, 11, 0.4);
+    box-shadow: 0 0 30px rgba(219, 39, 119, 0.6), 0 0 40px rgba(37, 99, 235, 0.4);
   }
 }
 
@@ -117,23 +125,23 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f8f7f4;
+  background: #faf5ff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #f59e0b, #d97706);
+  background: linear-gradient(180deg, #a855f7, #db2777);
   border-radius: 6px;
-  border: 2px solid #f8f7f4;
+  border: 2px solid #faf5ff;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #d97706, #b45309);
+  background: linear-gradient(180deg, #9333ea, #be185d);
 }
 
 /* Selection */
 ::selection {
-  background-color: rgba(245, 158, 11, 0.3);
-  color: #78350f;
+  background-color: rgba(168, 85, 247, 0.3);
+  color: #581c87;
 }
 
 /* Smooth scroll */

@@ -77,7 +77,7 @@ export default function ProductDetailPage() {
         <div className="container mx-auto px-4">
           <button
             onClick={() => router.back()}
-            className="flex items-center space-x-2 text-gray-600 hover:text-primary-600 mb-8 transition-colors"
+            className="flex items-center space-x-2 text-gray-600 hover:text-amethyst-600 mb-8 transition-colors"
           >
             <FiArrowLeft className="w-5 h-5" />
             <span>Back</span>
@@ -107,7 +107,7 @@ export default function ProductDetailPage() {
                       onClick={() => setSelectedImage(index)}
                       className={`relative h-24 rounded-lg overflow-hidden ${
                         selectedImage === index
-                          ? 'ring-2 ring-primary-600'
+                          ? 'ring-2 ring-amethyst-600'
                           : 'opacity-60 hover:opacity-100'
                       }`}
                     >
@@ -130,7 +130,7 @@ export default function ProductDetailPage() {
               <h1 className="text-4xl font-display font-bold mb-4">{product.name}</h1>
 
               <div className="flex items-center space-x-4 mb-6">
-                <span className="text-4xl font-bold text-primary-600">
+                <span className="text-4xl font-bold text-amethyst-600">
                   ₹{product.price.toLocaleString()}
                 </span>
                 {product.stock > 0 ? (

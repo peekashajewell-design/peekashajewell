@@ -181,7 +181,7 @@ export default function CheckoutPage() {
                   <div className="pt-4 border-t">
                     <div className="flex justify-between items-center mb-6">
                       <span className="text-lg font-semibold">Total</span>
-                      <span className="text-2xl font-bold text-primary-600">
+                      <span className="text-2xl font-bold text-amethyst-600">
                         ₹{getTotalPrice().toLocaleString()}
                       </span>
                     </div>

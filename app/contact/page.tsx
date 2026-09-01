@@ -58,7 +58,7 @@ export default function ContactPage() {
     <div className="min-h-screen pt-32 pb-20">
       {/* Hero Section */}
       <section className="bg-luxury-gradient py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amethyst-400/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-rose-400/10 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -68,7 +68,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <span className="inline-flex items-center px-4 py-2 bg-gold-100 text-gold-800 text-xs font-bold uppercase tracking-widest rounded-full mb-6">
+            <span className="inline-flex items-center px-4 py-2 bg-amethyst-100 text-amethyst-800 text-xs font-bold uppercase tracking-widest rounded-full mb-6">
               ✦ Get In Touch ✦
             </span>
             <h1 className="text-5xl md:text-6xl font-display font-bold text-slate-900 mb-6">
@@ -96,7 +96,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="card text-center group hover:shadow-gold transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-gold-400 to-gold-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-amethyst-400 to-amethyst-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                   <item.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
